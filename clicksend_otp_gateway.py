@@ -1,3 +1,4 @@
+import utils.session
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 import os
@@ -21,7 +22,8 @@ def generate_otp():
     return str(random.randint(100000, 999999))
 
 def send_sms(to_number, otp):
-    message = f"Your OTP code is: {otp}"
+    message = f"[Rensith Udara] 🔐 Your verification code is: {otp}. It will expire in 5 minutes. Do not share this code with anyone."
+
     payload = {
         "messages": [
             {
